@@ -1,6 +1,5 @@
 package test;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -80,6 +79,7 @@ public class TestDatabase {
 		
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Test
 	public void testSelectIntID(){
 		

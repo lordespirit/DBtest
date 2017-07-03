@@ -22,6 +22,7 @@ public class DBConnection {
 		this.DBPASS = dbpass;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	private ArrayList<Map> resultSetToCollection(ResultSet resultSet) throws SQLException { 
         // ResultSet is initially before the first data set
          ArrayList<Map> list = new ArrayList<Map>(); 
@@ -50,6 +51,7 @@ public class DBConnection {
         return list; 
     }
  
+	@SuppressWarnings("rawtypes")
 	public ArrayList<Map> select(int id) throws SQLException {
 		
 		String selectSQL = "SELECT * FROM " + DB_TABLE + " WHERE id=?";
