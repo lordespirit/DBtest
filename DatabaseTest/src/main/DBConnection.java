@@ -205,6 +205,31 @@ public class DBConnection {
          System.out.print("\t\n");
          
 	 }
+	 
+	 /**
+	  * Help String SQL Java = "UPDATE tableName SET campo = ?, campo2 = ? WHERE campoFiltro = ?"
+	 * @throws Exception 
+	  * 
+	  */
+	 public void update(int id, String newUser, String newEmail,String newWebpage ,String newSummary, String newComment) throws Exception{
+		 
+			try {
+				preparedStatement = connect.prepareStatement("UPDATE " + DB_TABLE +" SET MYUSER = ?, EMAIL = ?, WEBPAGE = ?, SUMMARY = ?, DATUM = ?, COMMENTS = ?  WHERE id= ?"); 
+				preparedStatement.setString(1, newUser);
+				preparedStatement.setString(2, newEmail);
+				preparedStatement.setString(3, newWebpage);
+				preparedStatement.setString(4, newSummary);
+				preparedStatement.setDate(5, new java.sql.Date(System.currentTimeMillis()));
+				preparedStatement.setString(6, newComment);
+				preparedStatement.setInt(7, id);
+		        preparedStatement.executeUpdate();
+			
+		    } catch (Exception e) {
+		    	close(); 
+	            throw e;
+			}
+		 
+	 }
 
 
 }
