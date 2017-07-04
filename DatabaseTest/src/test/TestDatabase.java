@@ -7,7 +7,7 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
-import main.DBConnection;
+import main.DBManager;
 
 public class TestDatabase {
 
@@ -15,7 +15,7 @@ public class TestDatabase {
 	public void testConnection(){
 		
 		boolean result = false;
-		DBConnection connector = new DBConnection("dbtest","edu","1234");
+		DBManager connector = new DBManager("dbtest","edu","1234");
 		
 		try {
 			result = connector.connect();
@@ -34,7 +34,7 @@ public class TestDatabase {
 	//@Test
 	public void testInsert(){
 		
-		DBConnection connector = new DBConnection("dbtest","edu","1234");
+		DBManager connector = new DBManager("dbtest","edu","1234");
 		int id = -1;
 		
 		try {
@@ -59,7 +59,7 @@ public class TestDatabase {
 	//@Test
 	public void testDelete(){
 		
-		DBConnection connector = new DBConnection("dbtest","edu","1234");
+		DBManager connector = new DBManager("dbtest","edu","1234");
 		try {
 			
 			connector.connect();
@@ -83,7 +83,7 @@ public class TestDatabase {
 	//@Test
 	public void testSelectIntID(){
 		
-		DBConnection connector = new DBConnection("dbtest","edu","1234");
+		DBManager connector = new DBManager("dbtest","edu","1234");
 		ArrayList<Map> arrayResult = null;
 		int id = -1;
 		
@@ -114,7 +114,7 @@ public class TestDatabase {
 		Assert.assertEquals("Summary de Edu", hashMap.get("summary")); 
 		Assert.assertEquals("Comentario de Edu", hashMap.get("comments"));
 		
-		DBConnection.writeResultSet(hashMap);
+		DBManager.writeResultSet(hashMap);
 		
 	}
 	
@@ -124,7 +124,7 @@ public class TestDatabase {
 	@Test
 	public void testUpdate(){
 		
-		DBConnection connector = new DBConnection("dbtest","edu","1234");
+		DBManager connector = new DBManager("dbtest","edu","1234");
 		@SuppressWarnings("rawtypes")
 		ArrayList<Map> arrayResult = null;
 		int id = -1;
@@ -178,7 +178,7 @@ public class TestDatabase {
 		Assert.assertEquals("Nuevo sumario", hashMap2.get("summary")); 
 		Assert.assertEquals("Nueva página de prueba", hashMap2.get("comments"));
 		
-		DBConnection.writeResultSet(hashMap2);
+		DBManager.writeResultSet(hashMap2);
 		
 	}
 	

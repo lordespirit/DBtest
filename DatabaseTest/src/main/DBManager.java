@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DBConnection {
+public class DBManager {
 	
 	private static final String DB_TABLE = "comments";
 	private final String DBNAME;
@@ -16,7 +16,7 @@ public class DBConnection {
 	private ResultSet resultSet;
 	private PreparedStatement preparedStatement;
 	
-	public DBConnection(String dbname, String dbuser, String dbpass){
+	public DBManager(String dbname, String dbuser, String dbpass){
 		this.DBNAME = dbname;
 		this.DBUSER = dbuser;
 		this.DBPASS = dbpass;
@@ -82,7 +82,7 @@ public class DBConnection {
 	public boolean connect() throws Exception {
 		try {
 			
-			//CARGAR DROVER MYSQL
+			//CARGAR DRIVER MYSQL
 			Class.forName("com.mysql.jdbc.Driver");
 			// jdbc:mysql://ip // database
 			connect = DriverManager.getConnection("jdbc:mysql://localhost/" + DBNAME + "?user=" + DBUSER +"&password=" + DBPASS);
